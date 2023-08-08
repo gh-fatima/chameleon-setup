@@ -1,0 +1,29 @@
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh 
+Yes
+Enter
+source ~/.bashrc
+sudo apt-get install git
+git clone https://github.com/gh-fatima/One-Epoch.git
+cd One-Epoch
+conda create --name Sup
+conda activate Sup
+conda install pytorch torchvision 
+pip install dataset
+mkdir data
+mkdir CIFAR10
+cd CIFAR10
+wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+tar -xzvf cifar-10-python.tar.gz
+cd ..
+cd dataset
+nano __init__.py
+cd ..
+conda install matplotlib
+conda install tqdm
+conda install scikit-learn
+conda install torchmetrics
+sudo -v ; curl https://rclone.org/install.sh | sudo bash
+curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+unzip rclone-current-linux-amd64.zip
+cd rclone-*-linux-amd64
