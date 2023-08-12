@@ -1,60 +1,24 @@
+** Downloading files from github and preparing gcloud:
+
+sudo apt-get install git
+git clone https://github.com/gh-fatima/chameleon-setup.git
+cd chameleon-setup
+bash install_gcloud.sh
+cd ..
+git clone https://github.com/gh-fatima/One-Epoch.git
+
+** Installing miniconda and creating environmet:
+
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh 
-Yes
+koli Enter
+yes
 Enter
-source ~/.bashrc
-sudo apt-get install git
-git clone https://github.com/gh-fatima/One-Epoch.git
-cd One-Epoch
-conda create --name Sup
+yes
+new terminal 
+conda create -n Sup python=3.9
+y
 conda activate Sup
-conda install pytorch torchvision 
-pip install dataset
-mkdir data
-mkdir CIFAR10
-cd CIFAR10
-wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
-tar -xzvf cifar-10-python.tar.gz
-cd ..
-cd dataset
-nano __init__.py
-cd ..
-conda install matplotlib
-conda install tqdm
-conda install scikit-learn
-conda install torchmetrics
-sudo -v ; curl https://rclone.org/install.sh | sudo bash
-curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
-unzip rclone-current-linux-amd64.zip
-cd rclone-*-linux-amd64
-
-
-
-conda create env central python=3.9
-conda install cudatoolkit -c nvidia
-
-
-####################################################################
-## Package Plan ##
-
-  environment location: /home/cc/miniconda3/envs/central
-
-  added / updated specs:
-    - cudatoolkit
-
-
-The following NEW packages will be INSTALLED:
-
-  cudatoolkit        nvidia/linux-64::cudatoolkit-11.7.0-hd8887f6_10 
-
-
-Proceed ([y]/n)? n
-
-
-CondaSystemExit: Exiting.
-##############################################################################################
-
-conda create env central python=3.9
 conda install cudatoolkit=11.7 -c nvidia
 y
 pip install torch
@@ -63,3 +27,9 @@ pip install matplotlib
 pip install tqdm
 pip install scikit-learn
 pip install torchmetrics
+pip install dataset
+
+** Login gcloud and downloading files from my bucket:
+
+gcloud auth login
+gsutil cp gs://advml/logs.zip ~/One-Epoch
