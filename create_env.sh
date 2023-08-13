@@ -1,19 +1,18 @@
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh 
-# koli Enter
-# yes
-# Enter
-# yes
-# new terminal 
-conda create -n Sup python=3.9
-# y
+echo "Removing Conda environment"
+conda deactivate
+conda env remove --name Sup
+
+echo "Installing and activating Conda environment"
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_23.3.1-0-Linux-x86_64.sh -O miniconda-39.sh
+bash miniconda-39.sh -fb
+rm miniconda-39.sh
+
+source ~/miniconda3/etc/profile.d/conda.sh
+conda init --all
+conda create --name Sup -y python=3.9
 conda activate Sup
 conda install cudatoolkit=11.7 -c nvidia
-# y
-pip install torch
-pip install torchvision
-pip install matplotlib
-pip install tqdm
-pip install scikit-learn
-pip install torchmetrics
-pip install dataset
+pip install -r requirements.txt
+echo "Conda environment installation complete"
+
+
