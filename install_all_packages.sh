@@ -35,3 +35,7 @@ function install_conda_environment() {
     echo "Conda environment installation complete"
 }
 
+
+# Call the functions
+git_clone
+install_conda_environment
