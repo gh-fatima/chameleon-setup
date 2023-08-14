@@ -1,8 +1,0 @@
-torch
-torchvision
-matplotlib
-tqdm
-scikit-learn
-torchmetrics
-dataset
-
